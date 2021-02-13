@@ -1,0 +1,47 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Feb 13 06:57:26 2021
+
+@author: awais ali
+"""
+
+
+
+def some_series(value ):
+    
+    #creating a list in which the first values of series are hard coded. 
+    lst=[1,2,4,8,16]
+    
+    lastValue=lst[4]
+    
+    # this variable is used to calculate each digit in a number. 
+    mul=1
+    
+    # return the value if the there is a single digit. 
+    if value-1<=4:
+        return lst[value-1]
+    else:
+        # here i want to calcualte each value of series until the nth is calculated. 
+        for x in range (5,value):
+            #getting all decimals
+            
+            for digit in str(lst[int(x)-1]):   
+                 if int(digit) >0:#if the number is not 0 
+                     mul=mul*int(digit)                     
+            lst.append(mul+lst[int(x)-1])# adding to list to save series. 
+            lastValue=lst[int(x)]# assigning the last value of series 
+            mul=1# in order to calculate the remaining series. 
+  
+    return lastValue
+
+
+def main():
+    x=int(input("Enter a positive integer: "))
+    print("The "+str(x)+"th number of the series would be "+str(some_series(x)))
+    
+    
+
+if __name__ == '__main__':
+    main()
+
+    
